@@ -26,7 +26,7 @@ pub mod aoc {
         let contents = fs::read_to_string(current_path)
             .expect("Failed to open file {}.");
         
-        return contents;
+        contents
     }
  }
 
