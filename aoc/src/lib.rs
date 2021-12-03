@@ -4,8 +4,7 @@ pub mod aoc {
 
     pub fn read_input() -> String {
         let current_path_res = env::current_dir();
-        let current_path_opt =
-        match current_path_res {
+        let current_path_opt = match current_path_res {
             Ok(dir_path) => {
                 println!("The current directory is: {}", dir_path.display()); 
                 Some(dir_path.clone())
