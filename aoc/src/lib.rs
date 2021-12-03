@@ -2,7 +2,7 @@ pub mod aoc {
     use std::fs;
     use std::env;
 
-    pub fn read_input(verbose: bool) -> String {
+    fn read_file(verbose: bool, file_name: &str) -> String {
         let current_path_res = env::current_dir();
         let current_path_opt = match current_path_res {
             Ok(dir_path) => {
@@ -21,7 +21,7 @@ pub mod aoc {
             let mut current_path = current_path_opt.unwrap();
             
             current_path.push("data");
-            current_path.push("input.txt");
+            current_path.push(file_name);
     
             current_path
         };
@@ -34,6 +34,13 @@ pub mod aoc {
         }
         
         contents
+    }
+
+    pub fn read_input(verbose: bool) -> String {
+        read_file(verbose, "input.txt") 
+    }
+    pub fn read_example(verbose: bool) -> String {
+        read_file(verbose, "example.txt") 
     }
  }
 
