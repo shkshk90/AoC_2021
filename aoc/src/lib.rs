@@ -2,11 +2,13 @@ pub mod aoc {
     use std::fs;
     use std::env;
 
-    pub fn read_input() -> String {
+    pub fn read_input(verbose: bool) -> String {
         let current_path_res = env::current_dir();
         let current_path_opt = match current_path_res {
             Ok(dir_path) => {
-                println!("The current directory is: {}", dir_path.display()); 
+                if verbose {
+                    println!("The current directory is: {}", dir_path.display()); 
+                }
                 Some(dir_path.clone())
             },
             Err(e) => {
@@ -23,8 +25,13 @@ pub mod aoc {
     
             current_path
         };
+        let _path_to_print = current_path.clone();
         let contents = fs::read_to_string(current_path)
             .expect("Failed to open file {}.");
+        
+        if verbose {
+            println!("Contents of file {} are retrieved successfully.", _path_to_print.display());
+        }
         
         contents
     }
