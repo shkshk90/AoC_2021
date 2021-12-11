@@ -1,27 +1,17 @@
-
 extern crate aoc;
 
-use std::collections::HashMap;
-use std::str::FromStr;
-
-#[derive(Clone)]
-struct Test {
-    x: u32
+mod day19 {
 }
-
-impl Test {
-    fn new() -> Self {
-        Self {
-            x: 0_u32
-        }
-    }
-}
-
 
 fn main() {
-    let contents = aoc::aoc::read_input(true);
+    let contents = if cfg!(feature = "example") { aoc::aoc::read_example(true) } else { aoc::aoc::read_input(true) };
     let _inputs = contents.lines();
     
+    let part_one = 0;
+    let part_two = 0;
+
+    println!("Part One = {}.", part_one);
+    println!("Part Two = {}.", part_two);
+
     ()
 }
-
